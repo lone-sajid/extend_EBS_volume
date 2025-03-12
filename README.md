@@ -1,7 +1,7 @@
-Extend the root filesystem of any Linux EC2 Instance on the fly.
+##Extend the root filesystem of any Linux EC2 Instance on the fly.
 
 REQUIREMENTS:
-=============
+------------
 1. This Script uses boto3(AWS SDK for python) and paramiko(for ssh connectivity and command execution).
 
 2. Setup IAM credentails which should have necessary access permissions, such as DescribeInstances, ModifyVolume.
@@ -13,7 +13,7 @@ REQUIREMENTS:
 5. SSH network connectivity access from the source machine to the concerned EC2 Instance.
 
 DEMO EXECUTION WORKFLOW:
-=========================
+-------------------------
 
 # python3 extend_volume.py
 Enter the Instance ID for which volume needs to be extended: i-xxxxxxxxxxxxxx           -> Specify the Instance ID here
