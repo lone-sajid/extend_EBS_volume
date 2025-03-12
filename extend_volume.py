@@ -1,5 +1,5 @@
 import boto3
-import paramiko             #for ssh connection
+import paramiko                  #for ssh connection
 ec2 = boto3.client('ec2')
 
 instance_id = input("Enter the Instance ID for which volume needs to be extended: ")
@@ -10,16 +10,18 @@ volume_id=response['Reservations'][0]['Instances'][0]['BlockDeviceMappings'][0][
 public_ip= response['Reservations'][0]['Instances'][0]['NetworkInterfaces'][0]['Association']['PublicIp']
 print(volume_id, " ", public_ip)
 
+# Modify Root EBS volume of given instance.
 modified_size=int(input("Enter the size to modify the volume: "))
 ec2.modify_volume(VolumeId=volume_id, Size=modified_size)
+os_user= input("Enter the username using which you will login to the Instance ex: ec2-user in case of Amazon Linux: ")
 private_key_path= input("Enter the absolute path of key pair to be used ex (/path/to/key.pem): ")
-#private_key_path='/Users/sajidlone/Downloads/Nvirginia.pem'
+
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
 try:
     ### Connect to the Instance....
     print(f"Connecting to EC2 instance at {public_ip}...")
-    ssh_client.connect(public_ip, username='ec2-user', key_filename=private_key_path)
+    ssh_client.connect(public_ip, username=os_user, key_filename=private_key_path)
 
     # Run Linux commands
     stdin, stdout, stderr = ssh_client.exec_command('sudo lsblk -f')
@@ -59,4 +61,4 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 finally:
-    ssh_client.close()    
+    ssh_client.close() 
