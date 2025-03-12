@@ -1,4 +1,4 @@
-##Extend the root filesystem of any Linux EC2 Instance on the fly.
+## Extend the root filesystem of any Linux EC2 Instance on the fly.
 
 REQUIREMENTS:
 ------------
