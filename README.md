@@ -15,13 +15,20 @@ REQUIREMENTS:
 DEMO EXECUTION WORKFLOW:
 -------------------------
 
-$ python3 extend_volume.py
+% python3 extend_volume.py
+
 Enter the Instance ID for which volume needs to be extended: i-xxxxxxxxxxxxxx           -> Specify the Instance ID here
+
 vol-xxxxxxxxxxxx   xx.xxx.xxx.xx
+
 Enter the size to modify the volume: <size>
+
 Enter the username using which you will login to the Instance ex: ec2-user in case of Amazon Linux: <OS_USERNAME>
+
 Enter the absolute path of key pair to be used ex (/path/to/key.pem): <key_pair_path>
+
 Connecting to EC2 instance at xx.xxx.xxx.xx...
+
 Devices:
  NAME      FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
 xvda                                                                             
@@ -30,7 +37,9 @@ xvda
 └─xvda128 vfat   FAT16       9AA3-6C3B                               8.7M    13% /boot/efi
 
 running growpath for /dev/xvda1...
+
 growpart completed...
+
 lsblk Command output after growpart:
   NAME      MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
 xvda      202:0    0  12G  0 disk 
@@ -41,6 +50,7 @@ xvda      202:0    0  12G  0 disk
 Extending Filesystem...
 
 Final filesystem details after extending...
+
  Filesystem     Type      Size  Used Avail Use% Mounted on
 devtmpfs       devtmpfs  4.0M     0  4.0M   0% /dev
 tmpfs          tmpfs     475M     0  475M   0% /dev/shm
