@@ -15,7 +15,7 @@ REQUIREMENTS:
 DEMO EXECUTION WORKFLOW:
 -------------------------
 
-# python3 extend_volume.py
+$ python3 extend_volume.py
 Enter the Instance ID for which volume needs to be extended: i-xxxxxxxxxxxxxx           -> Specify the Instance ID here
 vol-xxxxxxxxxxxx   xx.xxx.xxx.xx
 Enter the size to modify the volume: <size>
